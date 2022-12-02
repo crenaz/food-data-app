@@ -22,7 +22,7 @@ export default function Home() {
         </p>
 
         <div className={styles.grid}>
-
+classname grid
         </div>
       </main>
 
@@ -43,4 +43,15 @@ export default function Home() {
       </footer>
     </div>
   )
+}
+
+export async function getServerSideProps(){
+  console.log('hello from the server');
+
+  return {
+    props: {
+      hello: "world"
+    }
+  }
+
 }
