@@ -1,3 +1,4 @@
+import { processEnv } from '@next/env';
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
@@ -47,6 +48,10 @@ classname grid
 
 export async function getServerSideProps(){
   console.log('hello from the server');
+
+  const res = await fetch("https://api.nal.usda.gov/fdc/v1/foods/search?query=apple&pageSize=2&api_key=" + processEnv.APIKEY);
+
+  console.log(res);
 
   return {
     props: {
