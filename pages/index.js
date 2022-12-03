@@ -3,7 +3,10 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
-export default function Home() {
+
+export default function Home({datos}) {
+  console.log(datos);
+  console.log( typeof datos );
   return (
     <div className={styles.container}>
       <Head>
@@ -23,10 +26,10 @@ export default function Home() {
         </p>
 
         <div className={styles.grid}>
- grid of grids
+   
         </div>
       </main>
-
+      console.log( typeof results.foods );
 
       <p>Data provided by: U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2019. <a href="https://fdc.nal.usda.gov">fdc.nal.usda.gov</a> </p>
       <footer className={styles.footer}>
@@ -47,12 +50,18 @@ export default function Home() {
 }
 
 export async function getServerSideProps(){
-  console.log('hello from the server');
-  console.log(process.env.API_KEY);
+ 
+ 
+  const res = await fetch("https://api.nal.usda.gov/fdc/v1/foods/search?query=apple&pageSize=1&api_key=" + process.env.API_KEY);
 
+  const data = await res.json();
+
+
+  console.log(data);
+  console.log( typeof data );
   return {
     props: {
-      hello: "world"
+      results: datos
     }
   }
 

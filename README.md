@@ -1,3 +1,10 @@
+Whelp, I just ran into this error:
+"Uncaught Error: Objects are not valid as a React child (found: object with keys {id, name, country}).
+  If you meant to render a collection of children, use an array instead."
+  
+I'll go and try something else or reach out for help...
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
