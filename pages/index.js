@@ -4,9 +4,11 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
 
-export default function Home({datos}) {
-  console.log(datos);
-  console.log( typeof datos );
+export default function Home(data) {
+
+
+
+  
   return (
     <div className={styles.container}>
       <Head>
@@ -26,10 +28,11 @@ export default function Home({datos}) {
         </p>
 
         <div className={styles.grid}>
-   
+
+
         </div>
       </main>
-      console.log( typeof results.foods );
+      
 
       <p>Data provided by: U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2019. <a href="https://fdc.nal.usda.gov">fdc.nal.usda.gov</a> </p>
       <footer className={styles.footer}>
@@ -47,7 +50,7 @@ export default function Home({datos}) {
       </footer>
     </div>
   )
-}
+};
 
 export async function getServerSideProps(){
  
@@ -57,12 +60,10 @@ export async function getServerSideProps(){
   const data = await res.json();
 
 
-  console.log(data);
-  console.log( typeof data );
   return {
     props: {
-      results: datos
+      results: data
     }
   }
 
-}
+};
